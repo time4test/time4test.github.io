@@ -20,9 +20,9 @@ function LunchCheckController($scope) {
       return "Please enter data first !";
     var splitString = string.split(/[\s,]+/);
     if (splitString.length <= 3)
-      return "Enjoy !" + splitString.length;
+      return "Enjoy !";
     else
-      return "Too Much !" + splitString.length;
+      return "Too Much !";
 }
 }
 
