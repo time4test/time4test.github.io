@@ -1,0 +1,46 @@
+<div>
+  <br style="clear: left;">
+
+  <div ng-if="dirCtrl.items.length">
+
+    <div class="row">
+      <h4>{{ dirCtrl.title }}</h4>
+    </div>
+
+    <div class="row" ng-repeat="item in dirCtrl.items">
+
+      <div class="row">
+        <div class="col-xs-8">
+          <h4>
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            {{ item.name }}
+          </h4>
+        </div>
+        <div class="col-xs-4">
+          <button type="button" class="btn btn-link" ng-click="dirCtrl.onRemove({itemIndex: $index})">
+            Don't want this one!
+          </button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-8">
+          {{ item.description }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3 text-justify"><em>Price ( small / large ):</em></div>
+        <div class="col-xs-2 text-right"><strong>{{ item.price_small | currency:"$"}}</strong></div>
+        <div class="col-xs-1 text-center">/</div>
+        <div class="col-xs-2 text-left"><strong>{{ item.price_large | currency:"$"}}</strong></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row" ng-if=" dirCtrl.items && !dirCtrl.items.length ">
+    <p class="bg-warning">Nothing found :(</p>
+  </div>
+
+</div>

@@ -1,0 +1,29 @@
+<div>
+  <br style="clear: left;">
+
+  <div ng-if="menu.items.length">
+
+    <div class="row"><h2><strong>{{ menu.title }}</strong></h2></div>
+
+    <div class="row">
+        <div class="col-xs-4 text-center"><strong>ITEM</strong></div>
+        <div class="col-xs-5 text-center"><strong>Description</strong></div>
+        <div class="col-xs-1 text-center"><strong>Price small</strong></div>
+        <div class="col-xs-1 text-center"><strong>Price large</strong></div></div>
+    </div>
+
+    <div class="row" ng-repeat="item in menu.items">
+        <div class="col-xs-3 text-left">{{ item.name }}</div>
+        <div class="col-xs-6 text-left">{{ item.description }}</div>
+        <div class="col-xs-1 text-center">{{ item.price_small | currency:"$"}}</div>
+        <div class="col-xs-1 text-center">{{ item.price_large | currency:"$"}}</div>
+        <div class="col-xs-1"> <button type="button" class="button" ng-click="menu.onRemove({itemIndex: $index})">
+            Don't want this one!</button> </div>
+    </div>
+
+  </div>
+
+  <div class="row" ng-if=" menu.items && !menu.items.length "><p class="bg-info">Nothing found !</p>
+  </div>
+
+</div>
